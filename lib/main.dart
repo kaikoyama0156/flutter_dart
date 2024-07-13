@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:homework/next_page.dart';
 import 'package:homework/time_table.dart';
+import 'package:homework/time_table_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,51 +27,42 @@ class MyApp extends StatelessWidget {
 }
 
 class FirstPage extends StatefulWidget {
-  const FirstPage({super.key});
+  //const FirstPage({super.key});
 
   @override
-  State<FirstPage> createState() => _FirstPageState();
+  _FirstPageState createState() => _FirstPageState();
 }
 
 class _FirstPageState extends State<FirstPage> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _pages = <Widget>[
+    TimeTablePage(),
+    NextPage(),
+    NextPage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    int _selectedIndex = 0;
-
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-        print("タップされた場所は" + _selectedIndex.toString());
-      });
-    }
+    final style = theme.textTheme.titleMedium!.copyWith(
+        color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold);
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('時間割'),
-        //centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: ElevatedButton(
-              child: Text('やることリストへ'),
-              onPressed: () {
-                //ボタンを押したときに何が起こるかをかく
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NextPage()),
-                );
-              },
-            ),
-          ),
-          time_table(theme: theme),
-          //ここまで時間割
-        ],
-      ),
+      //appBar: AppBar(
+      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      //   title: Text('To Do'),
+      //   //centerTitle: true,
+      // ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.schedule),
             label: '時間割',
@@ -84,6 +77,7 @@ class _FirstPageState extends State<FirstPage> {
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
       ),
     );

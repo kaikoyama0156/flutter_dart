@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class time_table extends StatelessWidget {
   const time_table({
@@ -27,21 +28,35 @@ class time_table extends StatelessWidget {
           TableRow(
             //曜日入力
             decoration: BoxDecoration(color: theme.colorScheme.inversePrimary),
-            children: const <Widget>[
+            children: <Widget>[
               SizedBox(
                 height: 50,
                 child: Text(""),
               ),
-              SizedBox(
-                  child:
-                      Align(alignment: Alignment.center, child: Text('Mon'))),
-              Text("Tue"),
-              Text("Wed"),
-              Text("Thu"),
-              Text("Fri"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("Mon")),
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("Tue")),
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("Wed")),
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("Thu")),
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("Fri")),
+              ),
             ],
           ),
-          const TableRow(
+          //1限目
+          TableRow(
             children: <Widget>[
               SizedBox(
                   height: 50,
@@ -49,106 +64,247 @@ class time_table extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text("1"),
                   )),
-              SizedBox(
-                  height: 50,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text("物理"),
-                  )),
-              Text("Cell(1,2)"),
-              Text("Cell(1,3)"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("物理")),
+                color: Colors.yellow,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学②")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("英語①")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("化学")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("現代文")),
+                //: Colors.orange,
+              ),
             ],
           ),
-          const TableRow(
+          //2限目
+          TableRow(
             children: <Widget>[
-              SizedBox(
-                  height: 40,
+              const SizedBox(
+                  height: 50,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text("2"),
                   )),
-              Text("古文"),
-              Text("数学"),
-              Text("英語"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("英語①")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("古文")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学①")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("体育")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学①")),
+                //: Colors.orange,
+              ),
             ],
           ),
+          //3限目
           TableRow(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                   height: 50,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text("3"),
                   )),
-              Text("Cell(1,1)"),
-              Text("Cell(1,2)"),
-              Text("Cell(1,3)"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("体育")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("英語②")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("物理")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("世界史")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("化学")),
+                //: Colors.orange,
+              ),
             ],
           ),
+          //4限目
           TableRow(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                   height: 50,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text("4"),
                   )),
-              Text("Cell(1,1)"),
-              Text("Cell(1,2)"),
-              Text("Cell(1,3)"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("地理")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("情報")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("化学")),
+                color: Colors.red,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学②")),
+                color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("古文")),
+                //: Colors.orange,
+              ),
             ],
           ),
+          //5限目
           TableRow(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                   height: 50,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text("5"),
                   )),
-              Text("Cell(1,1)"),
-              Text("Cell(1,2)"),
-              Text("Cell(1,3)"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学③")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("現代文")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("音楽")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("教養")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学③")),
+                //: Colors.orange,
+              ),
             ],
           ),
+          //6限目
           TableRow(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                   height: 50,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text("6"),
                   )),
-              Text("Cell(1,1)"),
-              Text("Cell(1,2)"),
-              Text("Cell(1,3)"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("英語②")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("物理")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("現代文")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("地理")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("数学②")),
+                color: Colors.orange,
+              ),
             ],
           ),
+          //7限目
           TableRow(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                   height: 50,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text("7"),
                   )),
-              Text("Cell(1,1)"),
-              Text("Cell(1,2)"),
-              Text("Cell(1,3)"),
-              Text("Cell(0,3)"),
-              Text("Cell(0,3)"),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("古文")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("")),
+                //color: Colors.orange,
+              ),
+              Container(
+                height: 50,
+                child: Align(alignment: Alignment.center, child: Text("")),
+                //: Colors.orange,
+              ),
             ],
           ),
         ],
