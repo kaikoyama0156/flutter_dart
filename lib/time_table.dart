@@ -35,23 +35,40 @@ class time_table extends StatelessWidget {
               ),
               Container(
                 height: 50,
-                child: Align(alignment: Alignment.center, child: Text("Mon")),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Mon",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
               ),
               Container(
                 height: 50,
-                child: Align(alignment: Alignment.center, child: Text("Tue")),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Tue",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
               ),
               Container(
                 height: 50,
-                child: Align(alignment: Alignment.center, child: Text("Wed")),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Wed",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
               ),
               Container(
                 height: 50,
-                child: Align(alignment: Alignment.center, child: Text("Thu")),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Thu",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
               ),
               Container(
                 height: 50,
-                child: Align(alignment: Alignment.center, child: Text("Fri")),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Text("Fri",
+                        style: TextStyle(fontWeight: FontWeight.bold))),
               ),
             ],
           ),

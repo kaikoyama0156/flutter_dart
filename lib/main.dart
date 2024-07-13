@@ -35,16 +35,25 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   int _selectedIndex = 0;
-
-  static List<Widget> _pages = <Widget>[
-    TimeTablePage(),
-    NextPage(),
-    NextPage(),
-  ];
+  final List<String> _todoItems = [];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  void _addTodoItem(String task) {
+    if (task.isNotEmpty) {
+      setState(() {
+        _todoItems.add(task);
+      });
+    }
+  }
+
+  void _removeTodoItem(int index) {
+    setState(() {
+      _todoItems.removeAt(index);
     });
   }
 
@@ -53,6 +62,15 @@ class _FirstPageState extends State<FirstPage> {
     var theme = Theme.of(context);
     final style = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold);
+    List<Widget> pages = [
+      TimeTablePage(),
+      const TimeLine(),
+      NextPage(
+        todoItems: _todoItems,
+        addTodoItem: _addTodoItem,
+        removeTodoItem: _removeTodoItem,
+      ),
+    ];
 
     return Scaffold(
       //appBar: AppBar(
@@ -60,7 +78,7 @@ class _FirstPageState extends State<FirstPage> {
       //   title: Text('To Do'),
       //   //centerTitle: true,
       // ),
-      body: _pages[_selectedIndex],
+      body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -79,6 +97,20 @@ class _FirstPageState extends State<FirstPage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+class TimeLine extends StatelessWidget {
+  const TimeLine({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('タイムライン'),
+        //centerTitle: true,
       ),
     );
   }
