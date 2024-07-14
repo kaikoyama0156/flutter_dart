@@ -20,7 +20,13 @@ class NextPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('やることリスト'),
+        title: Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            'To Do List',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
       body: Column(
         children: <Widget>[

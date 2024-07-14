@@ -7,11 +7,28 @@ class TimeTablePage extends StatelessWidget {
     var theme = Theme.of(context);
     final stylea = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.primary, fontWeight: FontWeight.bold);
+    List<String> weekdays = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday'
+    ];
+    DateTime now = DateTime.now();
+    String day = weekdays[now.weekday - 1];
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('時間割'),
+        title: Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            'Time Schedule',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
       body: Column(children: [
         Container(height: 30),
@@ -35,8 +52,8 @@ class TimeTablePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(3.0),
               child: Text(
-                'Today is TuesDay',
-                style: TextStyle(fontSize: 25),
+                'Today is $day',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             )),
         time_table(theme: theme),

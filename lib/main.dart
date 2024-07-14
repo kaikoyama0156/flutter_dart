@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'homework',
       theme: ThemeData(
         colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 116, 109, 130)),
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 76, 225, 247)),
         useMaterial3: true,
       ),
       home: FirstPage(),
@@ -64,12 +64,12 @@ class _FirstPageState extends State<FirstPage> {
         color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold);
     List<Widget> pages = [
       TimeTablePage(),
-      const TimeLine(),
       NextPage(
         todoItems: _todoItems,
         addTodoItem: _addTodoItem,
         removeTodoItem: _removeTodoItem,
       ),
+      const TimeLine(),
     ];
 
     return Scaffold(
@@ -82,16 +82,16 @@ class _FirstPageState extends State<FirstPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            label: 'Time Schedule',
             icon: Icon(Icons.schedule),
-            label: '時間割',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'タイムライン',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'To Do',
+            label: 'To Do List',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: 'Message',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -109,8 +109,13 @@ class TimeLine extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('タイムライン'),
-        //centerTitle: true,
+        title: Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            'Message',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
   }
