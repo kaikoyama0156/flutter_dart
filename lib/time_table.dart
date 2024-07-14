@@ -84,12 +84,12 @@ class time_table extends StatelessWidget {
               Container(
                 height: 50,
                 child: Align(alignment: Alignment.center, child: Text("物理")),
-                color: Colors.yellow,
+                color: Colors.red,
               ),
               Container(
                 height: 50,
                 child: Align(alignment: Alignment.center, child: Text("数学②")),
-                //color: Colors.orange,
+                color: Colors.orange,
               ),
               Container(
                 height: 50,
@@ -202,12 +202,12 @@ class time_table extends StatelessWidget {
               Container(
                 height: 50,
                 child: Align(alignment: Alignment.center, child: Text("化学")),
-                color: Colors.red,
+                color: Colors.yellow,
               ),
               Container(
                 height: 50,
                 child: Align(alignment: Alignment.center, child: Text("数学②")),
-                color: Colors.orange,
+                //color: Colors.orange,
               ),
               Container(
                 height: 50,
@@ -284,7 +284,7 @@ class time_table extends StatelessWidget {
               Container(
                 height: 50,
                 child: Align(alignment: Alignment.center, child: Text("数学②")),
-                color: Colors.orange,
+                //color: Colors.orange,
               ),
             ],
           ),

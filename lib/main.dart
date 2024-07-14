@@ -35,7 +35,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   int _selectedIndex = 0;
-  final List<String> _todoItems = [];
+  final List<Map<String, String>> _todoItems = [];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -43,10 +43,10 @@ class _FirstPageState extends State<FirstPage> {
     });
   }
 
-  void _addTodoItem(String task) {
+  void _addTodoItem(String task, String deadline) {
     if (task.isNotEmpty) {
       setState(() {
-        _todoItems.add(task);
+        _todoItems.add({'task': task, 'deadline': deadline});
       });
     }
   }

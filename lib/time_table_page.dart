@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:homework/time_table.dart';
+import 'package:homework/next_page.dart';
 
 class TimeTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+
+    final List<Map<String, String>> todoItems;
     final stylea = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.primary, fontWeight: FontWeight.bold);
     List<String> weekdays = [
@@ -57,7 +60,7 @@ class TimeTablePage extends StatelessWidget {
               ),
             )),
         time_table(theme: theme),
-        Container(height: 30),
+        Container(height: 20),
         Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -69,13 +72,13 @@ class TimeTablePage extends StatelessWidget {
                 children: [
                   Text(
                     '明日までの課題',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 20),
                   ),
+                  //Text(todoItems[index]['task'] ?? ''),
                   Text(
-                    "化学：ワーク14ページ",
+                    "物理：ワークp14",
                     style: stylea.copyWith(
-                        color: theme.colorScheme.onSurface,
-                        fontSize: theme.textTheme.displaySmall?.fontSize),
+                        color: theme.colorScheme.onSurface, fontSize: (20)),
                   ),
                 ],
               ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NextPage extends StatelessWidget {
-  final List<String> todoItems;
-  final Function(String) addTodoItem;
+  final List<Map<String, String>> todoItems;
+  final Function(String, String) addTodoItem;
   final Function(int) removeTodoItem;
 
   NextPage({
@@ -16,6 +16,7 @@ class NextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     final TextEditingController _textController = TextEditingController();
+    final TextEditingController _deadlineController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -35,7 +36,8 @@ class NextPage extends StatelessWidget {
               itemCount: todoItems.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(todoItems[index]),
+                  title: Text(todoItems[index]['task'] ?? ''),
+                  subtitle: Text('Deadline: ${todoItems[index]['deadline']}'),
                   trailing: IconButton(
                     icon: Icon(Icons.check),
                     onPressed: () {
@@ -48,16 +50,29 @@ class NextPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _textController,
-              decoration: InputDecoration(
-                labelText: '新しいやること',
-                border: OutlineInputBorder(),
-              ),
-              onSubmitted: (value) {
-                addTodoItem(value);
-                _textController.clear();
-              },
+            child: Column(
+              children: [
+                TextField(
+                  controller: _textController,
+                  decoration: InputDecoration(
+                    labelText: '新しい課題',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 8),
+                TextField(
+                  controller: _deadlineController,
+                  decoration: InputDecoration(
+                    labelText: '締切日',
+                    border: OutlineInputBorder(),
+                  ),
+                  onSubmitted: (value) {
+                    addTodoItem(_textController.text, _deadlineController.text);
+                    _textController.clear();
+                    _deadlineController.clear();
+                  },
+                ),
+              ],
             ),
           ),
         ],
